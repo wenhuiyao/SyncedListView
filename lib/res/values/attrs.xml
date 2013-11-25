@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SyncListLayout" >
+        <attr name="left_id" format="reference" />
+        <attr name="right_id" format="reference" />
+        <attr name="left_scroll_factor" format="float"/>
+        <attr name="right_scroll_factor" format="float"/>
+    </declare-styleable>
+
+</resources>
