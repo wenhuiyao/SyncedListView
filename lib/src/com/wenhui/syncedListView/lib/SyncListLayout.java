@@ -28,7 +28,7 @@ public class SyncListLayout extends LinearLayout {
 	private static final String TAG = "SyncListLayout";
 
     private static final int DEFAULT_SCROLL_ANIMATION_DURATION = 60*1000; // MINUTE
-    private static final int DEFAULT_VELOCITY = 1400;  // PER MINUTE
+    private static final int DEFAULT_VELOCITY = 1500;  // PER MINUTE
 
     private ListView mListViewLeft;
     private ListView mListViewRight;
@@ -44,6 +44,7 @@ public class SyncListLayout extends LinearLayout {
     private int mAnimationDuration = DEFAULT_SCROLL_ANIMATION_DURATION;
     private int mAnimationVelocity = DEFAULT_VELOCITY;
     private int mLeftListId=0, mRightListId=0;
+    private float mLeftAnimationScrollFactor = 1.0f, mRightAnimationScrollFactor=0.9f;
     private long mDelay = 5l;
 
     // OverScroller doesn't give us the duration of a fling, bummer
@@ -120,7 +121,6 @@ public class SyncListLayout extends LinearLayout {
     	case MotionEvent.ACTION_UP:
             if( !mAnimating ){
     		    startAnimationInternal(mDelay);
-                Log.d(TAG, "Animation start");
             }
     		break;
     	}
@@ -172,6 +172,14 @@ public class SyncListLayout extends LinearLayout {
 
     public void setRightListView(ListView right){
         this.mListViewRight = right;
+    }
+
+    public void setLeftAnimationScrollFactor(float factor){
+        this.mLeftAnimationScrollFactor = factor;
+    }
+
+    public void setRightAnimationScrollFactor(float factor){
+        this.mRightAnimationScrollFactor= factor;
     }
 
     public boolean isAnimating() {
@@ -242,8 +250,6 @@ public class SyncListLayout extends LinearLayout {
 
     private class FlingRunnable implements Runnable {
         private float distance = 0;
-
-        private float leftScrollFactor = 1f, rightScrollFactor = 1f;
 
         public void setDistance(float distance){
             this.distance = distance;
@@ -334,7 +340,7 @@ public class SyncListLayout extends LinearLayout {
         }
 
         private void animate(){
-            scroller.startScroll(0, lastY, 0,distance, duration);
+            scroller.startScroll(0, lastY, 0, distance, duration);
             post(this);
         }
 
@@ -353,7 +359,7 @@ public class SyncListLayout extends LinearLayout {
             int y = scroller.getCurrY();
             int yDiff = y - lastY;
             if( yDiff != 0 ){
-                scrollListBy(yDiff, 1.0f, 0.9f);
+                scrollListBy(yDiff, mLeftAnimationScrollFactor, mRightAnimationScrollFactor);
                 lastY = y;
             }
 

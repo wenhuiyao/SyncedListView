@@ -28,30 +28,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="674ac21f-cfd7-43d9-914a-6e410d19cc9c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/AndroidManifest.xml" afterPath="$PROJECT_DIR$/demo/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demo/res/values-sw600dp/dimens.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/com/wenhui/syncedListView/lib/SyncListLayout.java" afterPath="$PROJECT_DIR$/lib/src/com/wenhui/syncedListView/lib/SyncListLayout.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/src/com/wenhui/syncedListView/demo/demo/SyncListViewContainerFragment.java" afterPath="$PROJECT_DIR$/demo/src/com/wenhui/syncedListView/demo/demo/SyncListViewContainerFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/res/values/dimens.xml" afterPath="$PROJECT_DIR$/demo/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/res/values/strings.xml" afterPath="$PROJECT_DIR$/demo/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/res/layout/sync_list_fragment.xml" afterPath="$PROJECT_DIR$/demo/res/layout/sync_list_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SyncedListView.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/attr.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385350475923" ignored="false" />
     <file path="/attrs.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385351795180" ignored="false" />
-    <file path="/SyncListLayout.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385428646664" ignored="false" />
-    <file path="/Dummy.txt" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385420604694" ignored="false" />
+    <file path="/SyncListLayout.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385439662593" ignored="false" />
+    <file path="/Dummy.txt" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385437489063" ignored="false" />
     <file path="/fragment.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385400005496" ignored="false" />
     <file path="$PROJECT_DIR$/demo/gen/com/wenhui/syncedListView/demo/demo/BuildConfig.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385351413978" ignored="false" />
     <file path="$PROJECT_DIR$/demo/gen/com/wenhui/syncedListView/demo/demo/Manifest.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385351414636" ignored="false" />
     <file path="$PROJECT_DIR$/demo/gen/com/wenhui/syncedListView/demo/demo/R.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385351414636" ignored="false" />
-    <file path="/dimens.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385353390326" ignored="false" />
+    <file path="/dimens.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385439318439" ignored="false" />
     <file path="/colors.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385353230877" ignored="false" />
     <file path="/Images.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385352869767" ignored="false" />
-    <file path="/SyncListViewContainerFragment.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385424838152" ignored="false" />
+    <file path="/SyncListViewContainerFragment.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385439279570" ignored="false" />
     <file path="/ids.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385353004770" ignored="false" />
     <file path="/AndroidManifest.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385353268848" ignored="false" />
     <file path="/styles.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385353250738" ignored="false" />
@@ -60,7 +57,7 @@
     <file path="$PROJECT_DIR$/../../Trulia/mob-androiduniversal-lib/src/com/trulia/android/TruliaApplication.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385418667349" ignored="false" />
     <file path="/SavedHomesListMapFragment.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385422777065" ignored="false" />
     <file path="$PROJECT_DIR$/../../Trulia/mob-androiduniversal-lib/src/com/trulia/android/fragment/SavedHomesListMapFragment.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385425022432" ignored="false" />
-    <file path="/a.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385407198058" ignored="false" />
+    <file path="/a.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385439915043" ignored="false" />
     <file path="$PROJECT_DIR$/../../Trulia/mob-androidcore-lib/src/com/trulia/android/core/TruliaLogger.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385418667349" ignored="false" />
     <file path="$PROJECT_DIR$/../../Trulia/mob-androiduniversal-lib/res/layout/list_fragment_layout.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385418667349" ignored="false" />
     <file path="$PROJECT_DIR$/../../Trulia/mob-androiduniversal-lib/src/com/trulia/android/com/trulia/android/openSource/PinnedSectionListView.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385413572906" ignored="false" />
@@ -83,6 +80,10 @@
     <file path="/trulia_activity.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385420969743" ignored="false" />
     <file path="$PROJECT_DIR$/../../Trulia/mob-androiduniversal-lib/src/com/trulia/android/fragment/SavedSearchFragment.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385424640812" ignored="false" />
     <file path="/SavedSearchFragment.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385424638771" ignored="false" />
+    <file path="$PROJECT_DIR$/../FlickrDemo/res/layout/sync_list_fragment.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385437792622" ignored="false" />
+    <file path="$PROJECT_DIR$/../FlickrDemo/src/org/wenhui/flickrdemo/syncListView/SyncListViewContainerFragment.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385437560872" ignored="false" />
+    <file path="$PROJECT_DIR$/../FlickrDemo/libraries/SyncedListView/lib/src/com/wenhui/syncedListView/lib/SyncListLayout.java" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385438016525" ignored="false" />
+    <file path="/integers.xml" changelist="674ac21f-cfd7-43d9-914a-6e410d19cc9c" time="1385438534038" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +98,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -134,6 +134,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -143,15 +144,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SyncListViewActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo/src/com/wenhui/syncedListView/demo/demo/SyncListViewActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="13" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -170,28 +162,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo/res/values/styles.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="872" selection-end="872" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SyncListViewContainerFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/src/com/wenhui/syncedListView/demo/demo/SyncListViewContainerFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="20" selection-start="4368" selection-end="4368" vertical-scroll-proportion="0.0">
+            <state line="79" column="60" selection-start="2802" selection-end="2802" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -208,24 +182,30 @@
       </file>
       <file leaf-file-name="sync_list_fragment.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/res/layout/sync_list_fragment.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="35" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0">
+            <state line="16" column="49" selection-start="638" selection-end="638" vertical-scroll-proportion="-8.888889">
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="SyncListLayout.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/src/com/wenhui/syncedListView/lib/SyncListLayout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="60" selection-start="1551" selection-end="1551" vertical-scroll-proportion="0.49511003">
-              <folding>
-                <element signature="e#6100#6285#0" expanded="true" />
-                <element signature="e#6274#6275#0" expanded="true" />
-              </folding>
+            <state line="56" column="93" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.7213317">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dimens.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/res/values-sw600dp/dimens.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="72" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -233,7 +213,7 @@
       <file leaf-file-name="dimens.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/res/values/dimens.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="53" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
+            <state line="5" column="41" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -257,9 +237,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/library/src/com/wenhuiSyncedListView/SyncListLayout.java" />
-        <option value="$PROJECT_DIR$/library/src/com/wenhui/syncedListView/lib/SyncListLayout.java" />
-        <option value="$PROJECT_DIR$/demo/res/values/ids.xml" />
         <option value="$PROJECT_DIR$/demo/src/com/wenhui/syncedListView/demo/demo/SyncListViewActivity.java" />
         <option value="$PROJECT_DIR$/demo/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/demo/res/values/styles.xml" />
@@ -268,18 +245,21 @@
         <option value="$PROJECT_DIR$/lib/res/values/attrs.xml" />
         <option value="$PROJECT_DIR$/lib/src/com/wenhui/syncedListView/lib/SyncedListLayout.java" />
         <option value="$PROJECT_DIR$/demo/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/demo/res/layout/sync_list_fragment.xml" />
         <option value="$PROJECT_DIR$/demo/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/demo/res/layout/sync_list_fragment.xml" />
+        <option value="$PROJECT_DIR$/lib/res/values/integers.xml" />
+        <option value="$PROJECT_DIR$/lib/res/values-sw600dp/integers.xml" />
         <option value="$PROJECT_DIR$/demo/src/com/wenhui/syncedListView/demo/demo/SyncListViewContainerFragment.java" />
         <option value="$PROJECT_DIR$/demo/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/demo/res/values-sw600dp/dimens.xml" />
         <option value="$PROJECT_DIR$/lib/src/com/wenhui/syncedListView/lib/SyncListLayout.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1920" />
-    <option name="height" value="989" />
+    <option name="width" value="1680" />
+    <option name="height" value="959" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -307,6 +287,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -356,48 +337,6 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SyncedListView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SyncedListView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SyncedListView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="values" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -409,7 +348,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -417,10 +356,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SyncedListView" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -432,7 +380,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="preferences.sourceCode.Java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/demo/libs/picasso-2.0.1.jar!/" />
     <property name="AndroidLayoutSelectedEditor" value="text-editor" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -448,21 +396,22 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/res/values-sw600dp" />
       <recent name="$PROJECT_DIR$/demo/res/drawable-xhdpi" />
       <recent name="$PROJECT_DIR$/demo/libs" />
       <recent name="$PROJECT_DIR$/demo/res/values" />
       <recent name="$PROJECT_DIR$/demo/src/com/wenhui/syncedListView/demo/demo" />
-      <recent name="$PROJECT_DIR$/demo/res/layouts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demo/res" />
+      <recent name="$PROJECT_DIR$/demo/res/values" />
+      <recent name="$PROJECT_DIR$/lib/res/values" />
+      <recent name="$PROJECT_DIR$/library/res/vlaues" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.wenhui.syncedListView.lib" />
       <recent name="com.wenhui.syncedListView.demo.demo" />
       <recent name="com.wenhui.syncedListView.demo" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/res/values" />
-      <recent name="$PROJECT_DIR$/demo/res/values" />
-      <recent name="$PROJECT_DIR$/library/res/vlaues" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.demo">
@@ -641,27 +590,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="989" extended-state="6" />
+    <frame x="0" y="22" width="1680" height="959" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19268897" sideWeight="0.67103696" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796317" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32777116" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796317" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21504803" sideWeight="0.68239355" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31760645" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21481028" sideWeight="0.6829559" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3170441" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19268897" sideWeight="0.67103696" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -733,27 +682,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/res/values/attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/com/wenhui/syncedListView/lib/InfiniteListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="27" selection-start="1063" selection-end="1063" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/res/values/ids.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="25" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="39" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0">
@@ -810,16 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/res/layout/sync_list_fragment.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="35" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="61" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.0">
@@ -827,27 +745,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/demo/res/layout/sync_list_fragment.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="49" selection-start="638" selection-end="638" vertical-scroll-proportion="-8.888889">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/demo/src/com/wenhui/syncedListView/demo/demo/SyncListViewContainerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="20" selection-start="4368" selection-end="4368" vertical-scroll-proportion="0.0">
+        <state line="79" column="60" selection-start="2802" selection-end="2802" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="53" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
+        <state line="5" column="41" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/res/values-sw600dp/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="72" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/com/wenhui/syncedListView/lib/SyncListLayout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="60" selection-start="1551" selection-end="1551" vertical-scroll-proportion="0.49511003">
-          <folding>
-            <element signature="e#6100#6285#0" expanded="true" />
-            <element signature="e#6274#6275#0" expanded="true" />
-          </folding>
+        <state line="56" column="93" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.7213317">
+          <folding />
         </state>
       </provider>
     </entry>

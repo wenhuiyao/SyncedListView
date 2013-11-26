@@ -10,8 +10,8 @@
     android:background="@drawable/grey"
     synced:left_id="@+id/list_view_left"
     synced:right_id="@+id/list_view_right"
-    synced:left_scroll_factor="1.15"
-    synced:right_scroll_factor="0.9">
+    synced:left_scroll_factor="1.25"
+    synced:right_scroll_factor="0.85">
 
     <ListView
         android:id="@id/list_view_left"

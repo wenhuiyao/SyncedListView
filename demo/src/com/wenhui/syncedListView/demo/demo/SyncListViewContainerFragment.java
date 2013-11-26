@@ -84,6 +84,9 @@ public class SyncListViewContainerFragment extends Fragment{
 			public void onGlobalLayout() {
                 removeGlobalLayoutListenerWrapper(lvRight.getViewTreeObserver(),this);
 				lvRight.setSelection(200000);
+
+                int velocity = getResources().getDimensionPixelSize(R.dimen.animation_velocity);
+                mLayout.setAnimationVelocity(velocity);
                 mLayout.startAnimation(100l);
 			}
 		});
@@ -172,7 +175,6 @@ public class SyncListViewContainerFragment extends Fragment{
 		}
 		
 	};
-	
 	
 	private static abstract class ImageBaseAdapter<T> extends InfiniteListAdapter implements
             OnClickListener {
