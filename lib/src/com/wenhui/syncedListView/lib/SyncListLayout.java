@@ -29,6 +29,7 @@ public class SyncListLayout extends LinearLayout {
 
     private static final int DEFAULT_SCROLL_ANIMATION_DURATION = 60*1000; // MINUTE
     private static final int DEFAULT_VELOCITY = 1500;  // PER MINUTE
+    private static final long DEFAULT_ANIMATION_DELAY = 10L;
 
     private ListView mListViewLeft;
     private ListView mListViewRight;
@@ -38,16 +39,14 @@ public class SyncListLayout extends LinearLayout {
     private float mLeftScrollFactor = 1.4f;
     private MotionEvent mDownEvent;
     private boolean mAnimating=false;
-    private boolean mRequestStopAnim;
+    private boolean mRequestStopAnim = false;
     private FlingRunnable mFlingRunnable;
     private AnimationRunnable mAnimationRunnable;
     private int mAnimationDuration = DEFAULT_SCROLL_ANIMATION_DURATION;
     private int mAnimationVelocity = DEFAULT_VELOCITY;
     private int mLeftListId=0, mRightListId=0;
     private float mLeftAnimationScrollFactor = 1.0f, mRightAnimationScrollFactor=0.9f;
-    private long mDelay = 5l;
 
-    // OverScroller doesn't give us the duration of a fling, bummer
     private Scroller mScroller;
 
     public SyncListLayout(Context context) {
@@ -115,16 +114,7 @@ public class SyncListLayout extends LinearLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-    	int action = MotionEventCompat.getActionMasked(event);
-    	switch( action ){
-    	case MotionEvent.ACTION_DOWN:
-    	case MotionEvent.ACTION_UP:
-            if( !mAnimating ){
-    		    startAnimationInternal(mDelay);
-            }
-    		break;
-    	}
-    	return gestureDetector.onTouchEvent(event);
+        return gestureDetector.onTouchEvent(event);
     }
     
 	private void dispatchTouchToList(final MotionEvent e){
@@ -150,19 +140,25 @@ public class SyncListLayout extends LinearLayout {
     @Override
     public void computeScroll() {
         if ( mScroller.computeScrollOffset() ){
-            int oldY = mLastFlingY;
-            int curY = mScroller.getCurrY();
 
-            if( oldY != curY ){
-                mFlingRunnable.setDistance(curY - oldY);
+            if( mAnimating ){ stopAnimationInternal(); }
+
+            int curY = mScroller.getCurrY();
+            int distance = curY - mLastFlingY;
+
+            if( distance != 0 ){
+                mFlingRunnable.setDistance(distance);
                 post(mFlingRunnable);
+            }
+
+            if (mScroller.isFinished() || distance == 0 ) {
+                startAnimationInternal(DEFAULT_ANIMATION_DELAY);
             }
 
             mLastFlingY = curY;
             return;
         }
 
-        Log.d(TAG, "Scroll stop");
 
     }
 
@@ -192,15 +188,9 @@ public class SyncListLayout extends LinearLayout {
     }
 
     private void startAnimationInternal(long delay){
+        if( mAnimating ){ return; }
+
         if(mRequestStopAnim ){ return; }
-
-        if (mListViewLeft == null || mListViewRight == null) {
-            return;
-        }
-
-        if( isAnimating() ){
-            return;
-        }
 
         mAnimating = true;
         postDelayed(new Runnable() {
@@ -218,11 +208,10 @@ public class SyncListLayout extends LinearLayout {
     }
 
     private void stopAnimationInternal(){
-    	mAnimating = false;
+        mAnimating = false;
         mAnimationRunnable.cancel();
 		removeCallbacks(mAnimationRunnable);
     }
-
 
     public void setLeftScrollFactor(float factor){
         this.mLeftScrollFactor = factor;
@@ -230,14 +219,6 @@ public class SyncListLayout extends LinearLayout {
 
     public void setRightScrollFactor(float factor){
         this.mRightScrollFactor = factor;
-    }
-
-    /**
-     *
-     * @param duration  In milliseconds
-     */
-    public void setAnimationDuration(int duration){
-        this.mAnimationDuration = duration;
     }
 
     /**
@@ -299,8 +280,6 @@ public class SyncListLayout extends LinearLayout {
             mScroller.fling(0, mLastFlingY, 0, (int)-velocityY, Integer.MIN_VALUE, Integer.MAX_VALUE,
             		Integer.MIN_VALUE, Integer.MAX_VALUE);
 
-            mDelay =mScroller.getDuration() + 50l;
-
             return true;
         }
 
@@ -308,14 +287,14 @@ public class SyncListLayout extends LinearLayout {
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
         	mFlingRunnable.setDistance(distanceY);
         	post(mFlingRunnable);
-            mDelay = 5l;
+            startAnimationInternal(DEFAULT_ANIMATION_DELAY);
             return true;
         }
 
 		@Override
 		public boolean onSingleTapUp(MotionEvent e) {
-			mDelay = 5l;
             dispatchTouchToList(e);
+            startAnimation(DEFAULT_ANIMATION_DELAY);
 			return false;
 		}
 
