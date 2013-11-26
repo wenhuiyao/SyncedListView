@@ -1,6 +1,10 @@
 SyncedListView
 ==============
 
-A synced double listviews that are similar to Expedia animated listview.
+##### Feature
 
-Download the demo app: https://dl.dropboxusercontent.com/u/24027452/ScrollableSlidingUpPaneLayoutDemo.apk
+* Expedia launch screen with two ListView layout side by side and animated.
+
+* Scroll two ListView's synchronously. Each ListView can have different scrolling velocity.
+
+* Download the demo app: https://dl.dropboxusercontent.com/u/24027452/ScrollableSlidingUpPaneLayoutDemo.apk
