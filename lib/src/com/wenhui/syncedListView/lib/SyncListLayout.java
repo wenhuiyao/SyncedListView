@@ -3,52 +3,48 @@ package com.wenhui.syncedListView.lib;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Point;
 import android.os.Build;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
-import android.view.Display;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.OverScroller;
 import android.widget.Scroller;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 /**
  * Author: wyao
  */
-public class SyncListLayout extends LinearLayout implements Runnable {
+public class SyncListLayout extends LinearLayout {
 
 	private static final String TAG = "SyncListLayout";
 
-    private static final int DEFAULT_SCROLL_ANIMATION_DURATION = 50;
-
-	private static final int TOUCH_MODE_REST = 0;
-	private static final int TOUCH_MODE_SCROLL = 1;
-	private static final int TOUCH_MODE_FLING = 2;
+    private static final int DEFAULT_SCROLL_ANIMATION_DURATION = 60*1000; // MINUTE
+    private static final int DEFAULT_VELOCITY = 1400;  // PER MINUTE
 
     private ListView mListViewLeft;
     private ListView mListViewRight;
     private GestureDetectorCompat gestureDetector;
     private int mLastFlingY = 0;
-    private float mRightScrollFactor = 0.6f;
-    private float mLeftScrollFactor = 1f;
+    private float mRightScrollFactor = 0.8f;
+    private float mLeftScrollFactor = 1.4f;
     private MotionEvent mDownEvent;
     private boolean mAnimating=false;
-	private float distance=0;
-	private int mTouchMode = TOUCH_MODE_REST;
     private boolean mRequestStopAnim;
-    private Runnable mAnimationRunnable;
+    private FlingRunnable mFlingRunnable;
+    private AnimationRunnable mAnimationRunnable;
     private int mAnimationDuration = DEFAULT_SCROLL_ANIMATION_DURATION;
-    private int mAnimationDistanceLeft = 0, mAnimationDistanceRight = 0;
+    private int mAnimationVelocity = DEFAULT_VELOCITY;
     private int mLeftListId=0, mRightListId=0;
+    private long mDelay = 5l;
 
     // OverScroller doesn't give us the duration of a fling, bummer
     private Scroller mScroller;
@@ -70,47 +66,32 @@ public class SyncListLayout extends LinearLayout implements Runnable {
 
     private void init(Context context, AttributeSet attrs ) {
 
-        TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.SyncListLayout);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SyncListLayout);
         try{
             mLeftListId = a.getResourceId(R.styleable.SyncListLayout_left_id, 0);
             mRightListId = a.getResourceId(R.styleable.SyncListLayout_right_id, 0);
             mLeftScrollFactor = a.getFloat(R.styleable.SyncListLayout_left_scroll_factor, 1f);
             mRightScrollFactor = a.getFloat(R.styleable.SyncListLayout_right_scroll_factor, 1f);
-
         }finally {
             a.recycle();
         }
 
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
+        DisplayMetrics metric = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(metric);
+        mAnimationVelocity = (int)(DEFAULT_VELOCITY * metric.density);
+
         gestureDetector = new GestureDetectorCompat(context, gestureListener);
         mScroller = new Scroller(context);
 
-        if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN ){
-            mAnimationRunnable = new AnimationRunnableJb();
-            mAnimationDistanceLeft = 3;
-            mAnimationDistanceRight = 2;
-        } else {
-            mAnimationRunnable = new AnimationRunnablePreJb();
-            mAnimationDistanceLeft = 2;
-            mAnimationDistanceRight = 1;
-        }
-
-    }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-
-
+        mAnimationRunnable = new AnimationRunnable(context);
+        mFlingRunnable = new FlingRunnable();
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        stopAnimation();
         removeCallbacks(mAnimationRunnable);
     }
 
@@ -137,21 +118,10 @@ public class SyncListLayout extends LinearLayout implements Runnable {
     	switch( action ){
     	case MotionEvent.ACTION_DOWN:
     	case MotionEvent.ACTION_UP:
-    		if( mAnimating ){
-    			break;
-    		}
-    		long delay;
-    		switch( mTouchMode ){
-    		case TOUCH_MODE_SCROLL:
-    			delay = 300l;
-    			break;
-            case TOUCH_MODE_FLING:
-                delay = mScroller.getDuration() + 100l;
-                break;
-    		default:
-    			delay = 50l;
-    		}
-    		startAnimationInternal(delay);
+            if( !mAnimating ){
+    		    startAnimationInternal(mDelay);
+                Log.d(TAG, "Animation start");
+            }
     		break;
     	}
     	return gestureDetector.onTouchEvent(event);
@@ -160,27 +130,21 @@ public class SyncListLayout extends LinearLayout implements Runnable {
 	private void dispatchTouchToList(final MotionEvent e){
 		if( mDownEvent == null ){ return; }
 
-        post(new Runnable() {
-            @Override
-            public void run() {
-                int leftListWidth = mListViewLeft.getWidth();
+        int leftListWidth = mListViewLeft.getWidth();
 
-                if ( mDownEvent.getX() <= mListViewLeft.getWidth() ){
-                    mListViewLeft.dispatchTouchEvent(mDownEvent);
-                    mListViewLeft.dispatchTouchEvent(e);
-                } else {
-                    // For some reason, this will only recognize x of left list
-                    mDownEvent.offsetLocation(-leftListWidth, 0f);
-                    e.offsetLocation(-leftListWidth, 0f);
-                    mListViewRight.dispatchTouchEvent(mDownEvent);
-                    mListViewRight.dispatchTouchEvent(e);
-                }
+        if (mDownEvent.getX() <= mListViewLeft.getWidth()) {
+            mListViewLeft.dispatchTouchEvent(mDownEvent);
+            mListViewLeft.dispatchTouchEvent(e);
+        } else {
+            // For some reason, this will only recognize x of left list
+            mDownEvent.offsetLocation(-leftListWidth, 0f);
+            e.offsetLocation(-leftListWidth, 0f);
+            mListViewRight.dispatchTouchEvent(mDownEvent);
+            mListViewRight.dispatchTouchEvent(e);
+        }
 
-                mDownEvent.recycle();
-                mDownEvent = null;
-            }
-        });
-
+        mDownEvent.recycle();
+        mDownEvent = null;
 	}
 
     @Override
@@ -190,13 +154,16 @@ public class SyncListLayout extends LinearLayout implements Runnable {
             int curY = mScroller.getCurrY();
 
             if( oldY != curY ){
-                distance = curY - oldY;
-                post(this);
+                mFlingRunnable.setDistance(curY - oldY);
+                post(mFlingRunnable);
             }
-            
+
             mLastFlingY = curY;
             return;
         }
+
+        Log.d(TAG, "Scroll stop");
+
     }
 
     public void setLeftListView(ListView left){
@@ -220,7 +187,6 @@ public class SyncListLayout extends LinearLayout implements Runnable {
         if(mRequestStopAnim ){ return; }
 
         if (mListViewLeft == null || mListViewRight == null) {
-            postDelayed(mAnimationRunnable, 1000l);
             return;
         }
 
@@ -229,7 +195,13 @@ public class SyncListLayout extends LinearLayout implements Runnable {
         }
 
         mAnimating = true;
-        postDelayed(mAnimationRunnable, delay);
+        postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mAnimationRunnable.startAnimation(mAnimationVelocity, mAnimationDuration);
+            }
+        }, delay);
+
     }
 
     public void stopAnimation(){
@@ -239,6 +211,7 @@ public class SyncListLayout extends LinearLayout implements Runnable {
 
     private void stopAnimationInternal(){
     	mAnimating = false;
+        mAnimationRunnable.cancel();
 		removeCallbacks(mAnimationRunnable);
     }
 
@@ -251,26 +224,43 @@ public class SyncListLayout extends LinearLayout implements Runnable {
         this.mRightScrollFactor = factor;
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    /**
+     *
+     * @param duration  In milliseconds
+     */
     public void setAnimationDuration(int duration){
         this.mAnimationDuration = duration;
     }
 
-    public void setAnimationDistanceLeft(int distance){
-        this.mAnimationDistanceLeft = distance;
+    /**
+     *
+     * @param velocity  Distance per second
+     */
+    public void setAnimationVelocity(int velocity){
+        this.mAnimationVelocity = velocity * 60;
     }
 
-    public void setAnimationDistanceRight(int distance){
-        this.mAnimationDistanceRight = distance;
+    private class FlingRunnable implements Runnable {
+        private float distance = 0;
+
+        private float leftScrollFactor = 1f, rightScrollFactor = 1f;
+
+        public void setDistance(float distance){
+            this.distance = distance;
+        }
+
+        @Override
+        public void run() {
+            scrollListBy(distance, mLeftScrollFactor, mRightScrollFactor);
+        }
     }
 
-	@Override
-	public void run() {
-        scrollListtBy(mListViewRight, (int)( distance * mRightScrollFactor ) );
-        scrollListtBy(mListViewLeft, (int)( distance * mLeftScrollFactor ) );
-	}
+    private void scrollListBy(float distance, float leftScrollFactor, float rightScrollFactor){
+        scrollListBy(mListViewRight, (int) (distance * rightScrollFactor));
+        scrollListBy(mListViewLeft, (int) (distance * leftScrollFactor));
+    }
 
-    private void scrollListtBy(ListView target, int deltaY) {
+    private void scrollListBy(ListView target, int deltaY) {
         final int firstPosition = target.getFirstVisiblePosition();
         if (firstPosition == ListView.INVALID_POSITION) {
             return;
@@ -292,73 +282,89 @@ public class SyncListLayout extends LinearLayout implements Runnable {
 				mDownEvent.recycle();
 			}
 			mDownEvent = MotionEvent.obtain(e);
-			removeCallbacks(SyncListLayout.this);
+			removeCallbacks(mFlingRunnable);
 			stopAnimationInternal();
             return true;
         }
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        	mTouchMode = TOUCH_MODE_FLING;
-            mLastFlingY = (int) mListViewRight.getScrollY();
+            mLastFlingY = mListViewRight.getScrollY();
             mScroller.fling(0, mLastFlingY, 0, (int)-velocityY, Integer.MIN_VALUE, Integer.MAX_VALUE,
             		Integer.MIN_VALUE, Integer.MAX_VALUE);
+
+            mDelay =mScroller.getDuration() + 50l;
+
             return true;
         }
 
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        	mTouchMode = TOUCH_MODE_SCROLL;
-        	distance = distanceY;
-        	post(SyncListLayout.this);
+        	mFlingRunnable.setDistance(distanceY);
+        	post(mFlingRunnable);
+            mDelay = 5l;
             return true;
         }
 
 		@Override
 		public boolean onSingleTapUp(MotionEvent e) {
-			dispatchTouchToList(e);
+			mDelay = 5l;
+            dispatchTouchToList(e);
 			return false;
 		}
 
     };
 
-    private class AnimationRunnableJb implements Runnable {
-        private Method method;
+    private class AnimationRunnable implements Runnable {
+        private int lastY;
+        private final OverScroller scroller;
+        private int distance, duration;
+        private boolean cancelled = false;
+
+        public AnimationRunnable(Context context){
+            scroller = new OverScroller(context, new LinearInterpolator());
+        }
+
+        public void startAnimation(int distance, int duration){
+            cancelled = false;
+            this.distance = distance;
+            this.duration = duration;
+            lastY = mListViewRight.getScrollY();
+            animate();
+        }
+
+        private void animate(){
+            scroller.startScroll(0, lastY, 0,distance, duration);
+            post(this);
+        }
+
+        public void cancel(){
+            cancelled = true;
+            scroller.forceFinished(true);
+        }
 
         @Override
         public void run() {
-            invokeListViewSmoothScrollBy(mListViewLeft, mAnimationDistanceLeft, mAnimationDuration);
-            invokeListViewSmoothScrollBy(mListViewRight, mAnimationDistanceRight, mAnimationDuration );
-            postDelayed(this, mAnimationDuration - 5l);
-        }
-
-        private void invokeListViewSmoothScrollBy(ListView lv, int distance, int duration){
-            //TODO: any alternative? to smoothly (linearly) scroll listview by distance
-            try {
-                if (method == null) {
-                    method = lv.getClass().getSuperclass().getDeclaredMethod("smoothScrollBy",
-                            int.class,
-                            int.class, boolean.class);
-                    method.setAccessible(true);
-                }
-                method.invoke(lv, distance, duration, true);
+            if( cancelled ){
                 return;
-            } catch (InvocationTargetException e) {
-            } catch (IllegalAccessException e) {
-            } catch (NoSuchMethodException e) {
             }
 
-            lv.smoothScrollBy(distance, duration);
+            boolean hasMore = scroller.computeScrollOffset();
+            int y = scroller.getCurrY();
+            int yDiff = y - lastY;
+            if( yDiff != 0 ){
+                scrollListBy(yDiff, 1.0f, 0.9f);
+                lastY = y;
+            }
+
+            if( hasMore ){
+                post(this);
+            } else {
+                animate();
+            }
+
         }
     }
 
-    private class AnimationRunnablePreJb implements Runnable {
-        @Override
-        public void run() {
-            scrollListtBy(mListViewLeft, mAnimationDistanceLeft);
-            scrollListtBy(mListViewRight, mAnimationDistanceRight);
-            postDelayed(this, 5l);
-        }
-    }
 
 }

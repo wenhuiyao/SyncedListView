@@ -2,6 +2,7 @@ package com.wenhui.syncedListView.demo.demo;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -27,6 +29,7 @@ import com.wenhui.syncedListView.lib.SyncListLayout;
 public class SyncListViewContainerFragment extends Fragment{
 	
     private SyncListLayout mLayout;
+    private MenuItem mAnimMenu;
 	Toast mToast;
 	
 	public static SyncListViewContainerFragment newInstance(){
@@ -70,7 +73,7 @@ public class SyncListViewContainerFragment extends Fragment{
 			
 			@Override
 			public void onGlobalLayout() {
-				lvLeft.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+				removeGlobalLayoutListenerWrapper(lvLeft.getViewTreeObserver(),this);
 				lvLeft.setSelection(200000);
 			}
 		});
@@ -79,7 +82,7 @@ public class SyncListViewContainerFragment extends Fragment{
 			
 			@Override
 			public void onGlobalLayout() {
-				lvRight.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                removeGlobalLayoutListenerWrapper(lvRight.getViewTreeObserver(),this);
 				lvRight.setSelection(200000);
                 mLayout.startAnimation(100l);
 			}
@@ -89,19 +92,39 @@ public class SyncListViewContainerFragment extends Fragment{
 		return root;
 	}
 
+    private void removeGlobalLayoutListenerWrapper(ViewTreeObserver observer, OnGlobalLayoutListener listener){
+        if(Build.VERSION.SDK_INT >= 16 ){
+            observer.removeOnGlobalLayoutListener(listener);
+        } else {
+            observer.removeGlobalOnLayoutListener(listener);
+        }
+    }
+
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 	}
 
-    private MenuItem mAnimMenu;
+    @Override
+    public void onResume() {
+        super.onResume();
+        mLayout.startAnimation(10l);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mLayout.stopAnimation();
+    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         String title = (mLayout.isAnimating()) ? "Stop anim" : "Start anim";
         mAnimMenu = menu.add(Menu.NONE, R.id.animation, 0, title);
-        mAnimMenu.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB  ){
+            mAnimMenu.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -129,7 +152,8 @@ public class SyncListViewContainerFragment extends Fragment{
 		@Override
 		public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 				long arg3) {
-			mToast.setText("Left list item " + position + " click");
+            position %= Images.imageLeftThumbUrls.length;
+			mToast.setText("Left list item " + position  + " click");
 			mToast.show();
 			
 		}
@@ -141,7 +165,7 @@ public class SyncListViewContainerFragment extends Fragment{
 		@Override
 		public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 				long arg3) {
-			Log.d("Sync", "Right click");
+            position %= Images.imageRightThumbUrls.length;
 			mToast.setText("Right list item " + position + " click");
 			mToast.show();
 			
