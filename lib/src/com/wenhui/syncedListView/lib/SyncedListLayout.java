@@ -23,9 +23,9 @@ import android.widget.Scroller;
 /**
  * Author: wyao
  */
-public class SyncListLayout extends LinearLayout {
+public class SyncedListLayout extends LinearLayout {
 
-	private static final String TAG = "SyncListLayout";
+	private static final String TAG = "SyncedListLayout";
 
     private static final int DEFAULT_SCROLL_ANIMATION_DURATION = 60*1000; // MINUTE
     private static final int DEFAULT_VELOCITY = 1500;  // PER MINUTE
@@ -49,29 +49,29 @@ public class SyncListLayout extends LinearLayout {
 
     private Scroller mScroller;
 
-    public SyncListLayout(Context context) {
+    public SyncedListLayout(Context context) {
         super(context);
         init(context, null);
     }
 
-    public SyncListLayout(Context context, AttributeSet attrs, int defStyle) {
+    public SyncedListLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context, attrs);
     }
 
-    public SyncListLayout(Context context, AttributeSet attrs) {
+    public SyncedListLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
     private void init(Context context, AttributeSet attrs ) {
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SyncListLayout);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SyncedListLayout);
         try{
-            mLeftListId = a.getResourceId(R.styleable.SyncListLayout_left_id, 0);
-            mRightListId = a.getResourceId(R.styleable.SyncListLayout_right_id, 0);
-            mLeftScrollFactor = a.getFloat(R.styleable.SyncListLayout_left_scroll_factor, 1f);
-            mRightScrollFactor = a.getFloat(R.styleable.SyncListLayout_right_scroll_factor, 1f);
+            mLeftListId = a.getResourceId(R.styleable.SyncedListLayout_left_id, 0);
+            mRightListId = a.getResourceId(R.styleable.SyncedListLayout_right_id, 0);
+            mLeftScrollFactor = a.getFloat(R.styleable.SyncedListLayout_left_scroll_factor, 1f);
+            mRightScrollFactor = a.getFloat(R.styleable.SyncedListLayout_right_scroll_factor, 1f);
         }finally {
             a.recycle();
         }

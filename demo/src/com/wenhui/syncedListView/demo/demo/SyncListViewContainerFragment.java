@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,11 +23,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import com.wenhui.syncedListView.lib.InfiniteListAdapter;
-import com.wenhui.syncedListView.lib.SyncListLayout;
+import com.wenhui.syncedListView.lib.SyncedListLayout;
 
 public class SyncListViewContainerFragment extends Fragment{
 	
-    private SyncListLayout mLayout;
+    private SyncedListLayout mLayout;
     private MenuItem mAnimMenu;
 	Toast mToast;
 	
@@ -53,7 +52,7 @@ public class SyncListViewContainerFragment extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		final View root = inflater.inflate(R.layout.sync_list_fragment, null);
-        mLayout = (SyncListLayout)root;
+        mLayout = (SyncedListLayout)root;
 		final ListView lvLeft = (ListView)root.findViewById(R.id.list_view_left);
 		final ListView lvRight = (ListView)root.findViewById(R.id.list_view_right);
 		int ivHeightLeft = getResources().getDimensionPixelSize(R.dimen.image_thumbnail_left_height);
