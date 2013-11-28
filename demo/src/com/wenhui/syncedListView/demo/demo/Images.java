@@ -58,6 +58,15 @@ public class Images {
     };
 
 
+    /**
+     * This are PicasaWeb thumbnail URLs and could potentially change. Ideally the PicasaWeb API
+     * should be used to fetch the URLs.
+     *
+     * Credit to Romain Guy for the photos:
+     * http://www.curious-creature.org/
+     * https://plus.google.com/109538161516040592207/about
+     * http://www.flickr.com/photos/romainguy
+     */
     public final static String[] imageRightThumbUrls = new String[]{
             "https://lh5.googleusercontent.com/-at6apgFiN20/URqvDyffUZI/AAAAAAAAAbs/clABCx171bE/s160-c/Sunset%252520Hills.jpg",
             "https://lh4.googleusercontent.com/-7-EHhtQthII/URqvEYTk4vI/AAAAAAAAAbs/QSJZoB3YjVg/s160-c/Tenaya%252520Lake%2525202.jpg",
