@@ -21,16 +21,20 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 import com.wenhui.syncedListView.lib.InfiniteListAdapter;
 import com.wenhui.syncedListView.lib.SyncedListLayout;
+
+import java.util.HashSet;
 
 public class SyncListViewContainerFragment extends Fragment{
 	
     private SyncedListLayout mLayout;
     private MenuItem mAnimMenu;
-	Toast mToast;
-	
+	private Toast mToast;
+
 	public static SyncListViewContainerFragment newInstance(){
 		SyncListViewContainerFragment frag = new SyncListViewContainerFragment();
 		return frag;
@@ -60,20 +64,19 @@ public class SyncListViewContainerFragment extends Fragment{
 
 		final ImageAdapter leftAdapter = new ImageAdapter(getActivity(), ivHeightLeft, Images.imageLeftThumbUrls);
 		final ImageAdapter rightAdapter = new ImageAdapter(getActivity(), ivHeightRight, Images.imageRightThumbUrls);
-		
-		lvLeft.setAdapter(leftAdapter);
-		lvRight.setAdapter(rightAdapter);
-		
+
+        lvLeft.setAdapter(leftAdapter);
+        lvRight.setAdapter(rightAdapter);
+
 		lvLeft.setOnItemClickListener(mLeftListClickListener);
 		lvRight.setOnItemClickListener(mRightListClickListener);
 		
-
 		lvLeft.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 			
 			@Override
 			public void onGlobalLayout() {
 				removeGlobalLayoutListenerWrapper(lvLeft.getViewTreeObserver(),this);
-				lvLeft.setSelection(200000);
+                lvLeft.setSelection(200000);
 			}
 		});
 		
@@ -82,15 +85,15 @@ public class SyncListViewContainerFragment extends Fragment{
 			@Override
 			public void onGlobalLayout() {
                 removeGlobalLayoutListenerWrapper(lvRight.getViewTreeObserver(),this);
-				lvRight.setSelection(200000);
-
                 int velocity = getResources().getDimensionPixelSize(R.dimen.animation_velocity);
+                lvRight.setSelection(200000);
                 mLayout.setAnimationVelocity(velocity);
                 mLayout.startAnimation(100l);
+
+
 			}
 		});
-		
-		
+
 		return root;
 	}
 
@@ -101,7 +104,6 @@ public class SyncListViewContainerFragment extends Fragment{
             observer.removeGlobalOnLayoutListener(listener);
         }
     }
-
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -189,7 +191,6 @@ public class SyncListViewContainerFragment extends Fragment{
 			mContext = context;
 		}
 
-
 		@Override
 		public int getItemCount() {
 			if (mData == null) {
@@ -231,11 +232,12 @@ public class SyncListViewContainerFragment extends Fragment{
 				imageView.setImageDrawable(null);
 			} else {
 				Picasso.with(mContext).load(getImageUrl(photo)).into(imageView);
+
+
 			}
 			imageView.setTag(photo);
 			return imageView;
 		}
-		
 
 		protected abstract String getImageUrl(T data);
 

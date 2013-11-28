@@ -10,14 +10,11 @@ public class SyncListViewActivity extends FragmentActivity {
 
 	private static final String TAG = "SyncListViewActivity";
 	
-	public static final void launch(Activity context) {
-		Intent i = new Intent(context, SyncListViewActivity.class);
-		context.startActivity(i);
-	}
-	
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
+
+        getWindow().setBackgroundDrawable(null);
 
 		SyncListViewContainerFragment fragment;
 		if (getSupportFragmentManager().findFragmentByTag(TAG) == null) {
