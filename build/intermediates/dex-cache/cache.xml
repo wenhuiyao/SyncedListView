@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/wyao/demoSrc/SyncedListView/app/libs/picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/wyao/demoSrc/SyncedListView/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-ae2a714ba3f8cf4aee4b5c4cb3ef351496726636.jar" />
+    </item>
+    <item
+        jar="/Users/wyao/demoSrc/SyncedListView/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/Users/wyao/demoSrc/SyncedListView/app/build/intermediates/pre-dexed/debug/classes-fbbe5ad8c2d6684a2e88fd4505cc9b89a830a776.jar" />
+    </item>
+    <item
+        jar="/Users/wyao/demoSrc/SyncedListView/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/Users/wyao/demoSrc/SyncedListView/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-ec1c67ad86883e565d2b3937a461f5ff96b64e2c.jar" />
+    </item>
+    <item
+        jar="/Users/wyao/demoSrc/SyncedListView/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/wyao/demoSrc/SyncedListView/app/build/intermediates/pre-dexed/debug/classes-c844cac8463c51aeac04f32cc176988640ccc14f.jar" />
+    </item>
+    <item
+        jar="/Users/wyao/demoSrc/SyncedListView/app/build/intermediates/exploded-aar/SyncedListView/library/unspecified/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="4cceb044b6dae3e424e197e43d93014b7d748368">
+        <dex dex="/Users/wyao/demoSrc/SyncedListView/app/build/intermediates/pre-dexed/debug/classes-cdc88eec32ecf864fa899a229fb176648c026055.jar" />
+    </item>
+    <item
+        jar="/Users/wyao/Documents/Android_SDK/adt-bundle-mac-x86_64-20130917/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="/Users/wyao/demoSrc/SyncedListView/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-da98990486734f638916dadabffd6eb48bcc54d6.jar" />
+    </item>
+
+</items>

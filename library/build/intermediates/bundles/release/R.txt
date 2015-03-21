@@ -1,0 +1,11 @@
+int attr left_id 0x7f010000
+int attr left_scroll_factor 0x7f010002
+int attr right_id 0x7f010001
+int attr right_scroll_factor 0x7f010003
+int drawable ic_launcher 0x7f020000
+int string app_name 0x7f030000
+int[] styleable SyncedListLayout { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003 }
+int styleable SyncedListLayout_left_id 0
+int styleable SyncedListLayout_left_scroll_factor 2
+int styleable SyncedListLayout_right_id 1
+int styleable SyncedListLayout_right_scroll_factor 3
